@@ -1,0 +1,13 @@
+<header>
+  <div class="header">
+    <h2 routerLink="/">LeetStreaker</h2>
+  </div>
+
+  <nav *ngIf="!isLogged">
+    <li class="nav-links"><a routerLink="/login">Login</a></li>
+    <li class="nav-links"><a routerLink="/signup">Signup</a></li>
+  </nav>
+  <nav *ngIf="isLogged">
+    #{{userHash}}
+  </nav>
+</header>

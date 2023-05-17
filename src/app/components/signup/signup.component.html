@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="form-parent">
+
+  <h3>Sign up</h3>
+
+  <div class="form-wrapper"><label>Username: </label>
+    <input type="text" formControlName="username" placeholder="username" />
+
+    <div *ngIf="formGroup.get('username')?.errors" class="errors">Username is required</div>
+  </div>
+
+  <div class="form-wrapper"><label>Password: </label>
+    <input type="password" formControlName="password" placeholder="password" />
+    <div *ngIf="formGroup.get('password')?.errors" class="errors">Password is not strong enough</div>
+  </div>
+
+
+  <button class="button" [disabled]="formGroup.status === 'INVALID'">Sign up</button>
+</form>
+<div *ngIf="response?.error">{{response?.error}}</div>
+
+<router-outlet></router-outlet>

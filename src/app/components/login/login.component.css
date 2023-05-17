@@ -1,0 +1,72 @@
+.form-parent {
+  background-color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
+  position: absolute;
+  padding: 50px 35px;
+  transform: translate(-50%, -50%);
+  display: block;
+  margin: 0 auto;
+  width: 40%;
+  top: 50%;
+  left: 50%;
+}
+
+input {
+  background: transparent;
+  border: none;
+  height: 100%;
+  font-size: 1.25rem;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.form-wrapper {
+  background-color: whitesmoke;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  width: 100%;
+  border: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.errors {
+  background-color: rgb(251, 207, 213);
+  width: 100%;
+  padding: 0.01% 1%;
+  /* border: none; */
+  border: 0.8% solid rgb(218, 173, 173);
+  border-radius: 4px;
+  color: rgb(164, 73, 73);
+}
+
+.button {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 98%;
+  height: 50px;
+  border: 1px solid #0a0a0a;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+.button:disabled{
+  background: #0a0a0ac2;
+}
+
+@media screen and (max-width: 800px) {
+  .form-parent {
+    width: 86%;
+    height: 500px;
+  }
+}
