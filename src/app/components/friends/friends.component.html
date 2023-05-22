@@ -1,1 +1,21 @@
-<p>friends works!</p>
+<div class="friends-div">
+  <div class="add_status" *ngIf="addStatus">{{addStatus}}</div>
+  <div class="search-bar">
+    <form (ngSubmit)="findUser()">
+      <fa-icon [icon]="faSearch" class="icon"></fa-icon>
+      <input type="text" placeholder="Search user" [(ngModel)]="hash" name="hash">
+    </form>
+  </div>
+
+  <div class="search-friends">
+    <div *ngFor="let user of users" class="friends-loop">
+      <div class="details">
+        <h5>{{user.username}}</h5>
+        <p>{{user.hashId}}</p>
+      </div>
+      <div class="plus-icon">
+        <fa-icon [icon]="faPlus" (click)="addFriend(user.hashId)"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>

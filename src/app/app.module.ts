@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms'
+import {ReactiveFormsModule,FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -10,10 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MessageComponent } from './components/message/message.component';
+import { MessagesComponent } from './components/messages/messages.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { FriendComponent } from './components/friend/friend.component';
-import { MessageComponent } from './components/message/message.component';
-import { MessagesComponent } from './components/messages/messages.component'
 
 @NgModule({
   declarations: [
@@ -22,17 +22,18 @@ import { MessagesComponent } from './components/messages/messages.component'
     NavComponent,
     LoginComponent,
     DashboardComponent,
+    MessageComponent,
+    MessagesComponent,
     FriendsComponent,
     FriendComponent,
-    MessageComponent,
-    MessagesComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FontAwesomeModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

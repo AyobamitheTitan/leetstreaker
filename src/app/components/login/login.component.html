@@ -11,6 +11,7 @@
   </div>
 
   <button class="button" [disabled]="formGroup.status === 'INVALID'">Login</button>
+  <div *ngIf="response?.error" class="server-error">{{response?.error}}</div>
+  <a routerLink="/signup">New Here? Signup</a>
 </form>
-<div *ngIf="response?.error" class="server-error">{{response?.error}}</div>
 <router-outlet></router-outlet>

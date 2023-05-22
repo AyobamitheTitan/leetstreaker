@@ -2,12 +2,24 @@
   <div class="dash-details">
     <p class="streaker">{{streakResponse.message}}</p>
     <p (click)="keepStreak()" *ngIf="!streakResponse.positive" class="streak-error">Start a new streak</p>
-  <div class="error" *ngIf="streakResponse?.error">{{streakResponse.error}}</div>
+    <div class="error" *ngIf="streakResponse?.error">{{streakResponse.error}}</div>
 
   </div>
   <div class="streak-indicator">
     <h2>{{streakResponse.streak}}
       <fa-icon [icon]="faFire" class="icon"></fa-icon>
     </h2>
+  </div>
+
+</div>
+<div class="location">
+  <div class="location-select">
+    <p (click)="changeLocation('FRIENDS')" [ngClass]="">Friends</p>
+    <span></span>
+    <p (click)="changeLocation('MESSAGES')" [ngClass]="">Messages</p>
+  </div>
+  <div class="location-items">
+    <app-friends *ngIf="location === 'FRIENDS'"></app-friends>
+    <app-messages *ngIf="location === 'MESSAGES'"></app-messages>
   </div>
 </div>

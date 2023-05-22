@@ -35,3 +35,29 @@
 .icon{
   color: orange;
 }
+
+.location-select{
+  display: flex;
+  border-bottom: 1px solid;
+  cursor: pointer;
+}
+
+.location-select p{
+  margin-left: 2%;
+  margin-bottom: 1%;
+  font-weight: 400;
+  font-size: larger;
+}
+
+.location-select span{
+  margin-left: 20px;
+  width: 3px;
+  height: 32.7px;
+  background: black;
+}
+
+.location-items{
+  display: flex;
+  margin-top: -2.5%;
+  margin-left: 3%;
+}

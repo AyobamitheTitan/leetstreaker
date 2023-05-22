@@ -1,0 +1,57 @@
+.friends-div{
+  margin-top: 30%;
+  /* border-top: 1px solid rgb(78, 78, 235); */
+  width: 100%;
+}
+
+.search-bar{
+  width: 100%;
+  height: 40px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: large;
+  padding: 12px;
+}
+
+.search-bar input{
+  border: none;
+}
+
+input:focus{
+  outline: none;
+}
+
+.icon{
+  margin-right: 20px;
+}
+
+.search-friends{
+  align-items: center;
+  font-weight: 200;
+  font-size: large;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.friends-loop{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 0.5px solid salmon;
+  margin-bottom: 2px;
+}
+
+.details{
+  margin-right: 30px;
+}
+
+.plus-icon{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  color: rgb(134, 198, 37);
+  justify-content: flex-end;
+  font-size: x-large;
+}

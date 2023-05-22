@@ -12,13 +12,32 @@
   left: 50%;
 }
 
+.server-error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(222, 31, 31);
+  font-size: larger;
+}
+
 input {
   background: transparent;
-  border: none;
+  border: 1px solid rgb(172, 170, 170);
+  border-radius: 4px;
+  padding: 2%;
   height: 100%;
   font-size: 1.25rem;
   width: 100%;
 }
+
+a{
+  margin-top: 20px;
+  color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 input:focus {
   outline: none;
