@@ -1,0 +1,9 @@
+.button{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 2;
+}
+button {
+  border-radius: 2px;
+}

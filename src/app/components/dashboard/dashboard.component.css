@@ -32,8 +32,12 @@
   justify-content: flex-end;
 }
 
-.icon{
+.burning{
   color: orange;
+}
+
+.location{
+  position: relative;
 }
 
 .location-select{
@@ -50,14 +54,6 @@
 }
 
 .location-select span{
-  margin-left: 20px;
-  width: 3px;
-  height: 32.7px;
-  background: black;
-}
-
-.location-items{
-  display: flex;
-  margin-top: -2.5%;
-  margin-left: 3%;
+  height: 12%;
+  width: 15%;
 }

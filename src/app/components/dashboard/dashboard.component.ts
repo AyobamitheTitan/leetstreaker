@@ -20,6 +20,10 @@ export class DashboardComponent implements OnInit {
     error: '',
     positive: true,
   };
+
+  public fireStyle = {
+    'burning':this.streakResponse.streak,
+  }
   public location: string = '';
 
   public faMessage = faMessage;
@@ -28,17 +32,17 @@ export class DashboardComponent implements OnInit {
   constructor(private leetService: LeetService, private router: Router) {}
 
   ngOnInit(): void {
-    this.leetService.getStreak().subscribe({
-      next: (v: StreakResponse) => {
-        console.log(v);
-        this.streakResponse = v;
-      },
-      error: (err: HttpErrorResponse) => {
-        if (err.status === 401) {
-          this.router.navigate(['login']);
-        }
-      },
-    });
+    // this.leetService.getStreak().subscribe({
+    //   next: (v: StreakResponse) => {
+    //     console.log(v);
+    //     this.streakResponse = v;
+    //   },
+    //   error: (err: HttpErrorResponse) => {
+    //     if (err.status === 401) {
+    //       this.router.navigate(['login']);
+    //     }
+    //   },
+    // });
   }
 
 

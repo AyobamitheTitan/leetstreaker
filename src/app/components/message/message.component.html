@@ -1,1 +1,10 @@
-<p>message works!</p>
+<div class="p-3 shadow-sm bg-white border flex my-3 w-full">
+  <div class="flex">
+    <h3 class="">{{message.message}}</h3> : <p class="">#{{message.secondary}}</p>
+  </div>
+  <!-- <p><b>TYPE : {{message.what}}</b> </p> -->
+  <div class="button flex" *ngIf="message.gotten === 'FROM'">
+    <button (click)="onAccept()" class="m-1 p-1 shadow-lg  rounded-s ring">Accept</button>
+  </div>
+
+</div>

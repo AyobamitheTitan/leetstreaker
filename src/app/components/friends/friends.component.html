@@ -1,21 +1,32 @@
-<div class="friends-div">
-  <div class="add_status" *ngIf="addStatus">{{addStatus}}</div>
-  <div class="search-bar">
-    <form (ngSubmit)="findUser()">
+<div class="m-1 p-5 friends">
+  <div class="flex" *ngIf="addStatus">
+    <p class="text-indigo-400 font-bold mx-3">{{addStatus}}</p>
+    <fa-icon [icon]="faTimes" class="icon" (click)="deleteAddStatus()"></fa-icon>
+  </div>
+  <div>
+    <form (ngSubmit)="findUser()" class="search-bar">
       <fa-icon [icon]="faSearch" class="icon"></fa-icon>
       <input type="text" placeholder="Search user" [(ngModel)]="hash" name="hash">
+      <div class="times-icon" *ngIf="show" (click)="toggleShow()">
+        <fa-icon [icon]="faTimes" class="icon"></fa-icon>
+      </div>
     </form>
   </div>
 
-  <div class="search-friends">
+  <div class="search-friends w-7/12" *ngIf="show">
     <div *ngFor="let user of users" class="friends-loop">
       <div class="details">
-        <h5>{{user.username}}</h5>
+        <h5 class="text-2xl">{{user.username}}</h5>
         <p>{{user.hashId}}</p>
       </div>
       <div class="plus-icon">
         <fa-icon [icon]="faPlus" (click)="addFriend(user.hashId)"></fa-icon>
       </div>
+    </div>
+  </div>
+  <div class="my_friends">
+    <div *ngFor="let my_friend of my_friends">
+      <app-friend [friend]="my_friend"></app-friend>
     </div>
   </div>
 </div>

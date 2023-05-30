@@ -1,30 +1,26 @@
-.friends-div{
-  margin-top: 30%;
-  /* border-top: 1px solid rgb(78, 78, 235); */
-  width: 100%;
-}
-
 .search-bar{
   width: 100%;
-  height: 40px;
+  height: 12%;
   border: 1px solid black;
   display: flex;
   align-items: center;
-  font-weight: 300;
-  font-size: large;
   padding: 12px;
 }
 
 .search-bar input{
   border: none;
+  width: 100%;
 }
 
-input:focus{
+input:focus,input:active{
   outline: none;
+  background: transparent;
+  background-color: transparent;
 }
 
 .icon{
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .search-friends{
@@ -33,13 +29,16 @@ input:focus{
   font-size: large;
   max-height: 100px;
   overflow-y: scroll;
+  position: absolute;
+  background: rgb(243, 245, 247);
+  z-index: 10;
 }
 
 .friends-loop{
   display: flex;
   align-items: center;
   width: 100%;
-  border: 0.5px solid salmon;
+  border: 0.5px solid rgb(21, 21, 20);
   margin-bottom: 2px;
 }
 

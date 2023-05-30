@@ -1,0 +1,8 @@
+.friend-streak{
+  justify-content: flex-end;
+  flex: 3;
+}
+
+.friend-id{
+  color: rgb(26, 238, 238);
+}

@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" class="form-parent">
-  <h3>Login</h3>
+  <h3 class="text-xl">Login</h3>
   <div class="form-wrapper"><label>Username: </label>
     <input type="text" class="" formControlName="username" placeholder="Enter Username" required />
     <div *ngIf="formGroup.get('username')?.errors" class="errors">Username is required</div>
