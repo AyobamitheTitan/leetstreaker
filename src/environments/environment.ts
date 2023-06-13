@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // url: 'https://leet-streaker.onrender.com/api',
-  url:'http://localhost:6700/api'
+  url: 'https://leet-streaker.onrender.com/api',
+  // url:'http://localhost:6700/api'
 };
 
 /*
