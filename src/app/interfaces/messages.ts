@@ -3,4 +3,5 @@ export interface Messages {
   secondary: string;
   what: string;
   gotten:string
+  username:string
 }

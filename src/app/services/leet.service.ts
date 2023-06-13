@@ -35,103 +35,72 @@ export class LeetService {
   }
 
   getUserDetails(): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.get<any>(
-        `${environment.url}/leet/${localStorage.getItem('username')}`,
-        this.authHeaders
-      );
-    }
-    return this.http.get<any>(`${environment.url}/leet/streak`);
+    
+    return this.http.get<any>(
+      `${environment.url}/leet/${localStorage.getItem('username')}`,
+      this.authHeaders
+    );
   }
 
   getStreak(): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.get<any>(
-        `${environment.url}/leet/streak/${localStorage.getItem('username')}`,
-        this.authHeaders
-      );
-    }
+    this.authHeaders.headers = new HttpHeaders({
+      Authorization: `Bearer ${
+        localStorage.getItem('token')
+          ? JSON.parse(localStorage.getItem('token') as string)['token']
+          : ''
+      }`,
+    });
+
     return this.http.get<any>(
-      `${environment.url}/leet/streak/${localStorage.getItem('username')}`
+      `${environment.url}/leet/streak/${localStorage.getItem('username')}`,
+      this.authHeaders
     );
   }
 
   startStreak(): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.get<any>(
-        `${environment.url}/leet/streak/begin/${localStorage.getItem(
-          'username'
-        )}`,
-        this.authHeaders
-      );
-    }
     return this.http.get<any>(
-      `${environment.url}/leet/streak/begin/${localStorage.getItem('username')}`
+      `${environment.url}/leet/streak/begin/${localStorage.getItem(
+        'username'
+      )}`,
+      this.authHeaders
     );
   }
 
   getUsers(hash: string): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.post<any>(
-        `${environment.url}/leet/friends`,
-        { hash: hash },
-        this.authHeaders
-      );
-    }
-    return this.http.post<any>(`${environment.url}/leet/friends`, hash);
+    return this.http.post<any>(
+      `${environment.url}/leet/friends`,
+      { hash: hash },
+      this.authHeaders
+    );
   }
 
   makeFriends(hash: string): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.post<any>(
-        `${environment.url}/leet/friends/${localStorage.getItem('username')}`,
-        { userHash: hash },
-        this.authHeaders
-      );
-    }
     return this.http.post<any>(
       `${environment.url}/leet/friends/${localStorage.getItem('username')}`,
-      hash
+      { userHash: hash },
+      this.authHeaders
     );
   }
 
   addFriend(hash: string): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.post<any>(
-        `${environment.url}/leet/new_friend/${localStorage.getItem(
-          'username'
-        )}`,
-        { hash: hash },
-        this.authHeaders
-      );
-    }
     return this.http.post<any>(
       `${environment.url}/leet/new_friend/${localStorage.getItem('username')}`,
-      hash
+      { hash: hash },
+      this.authHeaders
     );
   }
 
   myMessages(): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.get<any>(
-        `${environment.url}/leet/messages/${localStorage.getItem('username')}`,
-        this.authHeaders
-      );
-    }
     return this.http.get<any>(
-      `${environment.url}/leet/messages/${localStorage.getItem('username')}`
+      `${environment.url}/leet/messages/${localStorage.getItem('username')}`,
+      this.authHeaders
     );
   }
 
   myFriends(): Observable<any> {
-    if (this.isLogged()) {
-      return this.http.get<any>(
-        `${environment.url}/leet/friends/${localStorage.getItem('username')}`,
-        this.authHeaders
-      );
-    }
     return this.http.get<any>(
-      `${environment.url}/leet/friends/${localStorage.getItem('username')}`
+      `${environment.url}/leet/friends/${localStorage.getItem('username')}`,
+      this.authHeaders
     );
   }
 }

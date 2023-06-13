@@ -1,12 +1,17 @@
+
 <div class="dash ">
-  <div class="dash-details">
+  <div class="dash-details mx-3">
+    {{!streakResponse.message ? "Loading ..." : ''}}
     <p class="streaker">{{streakResponse.message}}</p>
     <p (click)="keepStreak()" *ngIf="!streakResponse.positive" class="streak-error">Start a new streak</p>
-    <div class="error" *ngIf="streakResponse?.error">{{streakResponse.error}}</div>
+    <div class="flex error-body w-fit" *ngIf="streakResponse?.error">
+      <p class="text-xl error px-3 py-2">{{streakResponse.error}}</p>
+      <fa-icon [icon]="faTimes" (click)="closeError()" class="text-xl font-bold my-auto mx-2"></fa-icon>
+    </div>
 
   </div>
   <div class="streak-indicator">
-    <h2 class="text-3xl p-4">{{streakResponse.streak}}
+    <h2 class="text-3xl p-4" [ngClass]="fireStyle">{{streakResponse.streak}}
       <fa-icon [icon]="faFire" [ngClass]="fireStyle"></fa-icon>
     </h2>
   </div>
@@ -14,9 +19,15 @@
 </div>
 <div class="location p-10 border border-black m-3">
   <div class="location-select">
-    <p (click)="changeLocation('FRIENDS')" [ngClass]="">Friends</p>
+    <div class="flex">
+      <fa-icon [icon]="faUser" class="my-1"></fa-icon>
+      <p (click)="changeLocation('FRIENDS')">Friends</p>
+    </div>
     <span class="span"></span>
-    <p (click)="changeLocation('MESSAGES')" [ngClass]="">Messages</p>
+    <div class="flex">
+      <fa-icon [icon]="faMessage" class="my-1"></fa-icon>
+      <p (click)="changeLocation('MESSAGES')" >Messages</p>
+    </div>
   </div>
   <div class="">
     <app-friends *ngIf="location === 'FRIENDS'"></app-friends>

@@ -3,11 +3,17 @@
     <h2 routerLink="/" class="text-3xl">LeetStreaker</h2>
   </div>
 
-  <nav *ngIf="!isLogged">
-    <li class="nav-links"><a routerLink="/login">Login</a></li>
-    <li class="nav-links"><a routerLink="/signup">Signup</a></li>
+  <nav >
+    <!-- <div class="icon" (click)="getHash()">
+      <fa-icon [icon]="faRoll" ></fa-icon>
+    </div> -->
+    <div *ngIf="!isLogged" class="flex">
+      <li class="nav-links px-2"><a routerLink="/login">Login</a></li>
+      <li class="nav-links"><a routerLink="/signup">Signup</a></li>
+    </div>
+    <div *ngIf="isLogged">
+      #{{userHash}}
+    </div>
   </nav>
-  <nav *ngIf="isLogged">
-    #{{userHash}}
-  </nav>
+
 </header>

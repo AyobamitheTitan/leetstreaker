@@ -13,6 +13,8 @@ import { RegisterService } from 'src/app/services/register.service';
 })
 export class SignupComponent implements OnInit {
   public response!: Response|null;
+  public buttonHolder:string = "Sign up"
+  public loading:boolean = false
 
   constructor(private registerService: RegisterService,private router:Router) {}
 
@@ -31,10 +33,13 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     this.response = null
+    this.buttonHolder = "Loading"
+    this.loading = true
     console.log(this.formGroup.value);
 
     this.registerService.createUser(this.formGroup.value).subscribe({
       next: (v) => {
+        this.loading = false
         this.response = v;
         const token = {
           token: this.response.token,
@@ -42,10 +47,12 @@ export class SignupComponent implements OnInit {
         };
         localStorage.setItem('token', JSON.stringify(token));
         localStorage.setItem('username',this.response.username as string)
-        this.router.navigate(['/'])
+        this.router.navigate([''],{skipLocationChange:true})
       },
       error: (e: HttpErrorResponse) => {
-        localStorage.removeItem('token')
+        this.loading = false
+        localStorage.clear()
+        this.buttonHolder = "Sign up"
         this.response = e.error;
       },
     });

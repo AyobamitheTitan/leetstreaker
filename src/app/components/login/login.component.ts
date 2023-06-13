@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from 'src/app/interfaces/response';
 import { User } from 'src/app/interfaces/user';
 import { RegisterService } from 'src/app/services/register.service';
@@ -14,7 +14,7 @@ import { RegisterService } from 'src/app/services/register.service';
 export class LoginComponent implements OnInit {
   public response!: Response| null;
 
-  constructor(private registerService: RegisterService,private router:Router) {}
+  constructor(private registerService: RegisterService,private router:Router,private activeRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
   }
@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     this.registerService.logUser(this.formGroup.value).subscribe({
       next:(v)=>{
         this.response = v
+
         const token = {
           token:this.response.token,
           expiry:new Date(Date.now() + 24 * 60 * 60 * 100)
@@ -47,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([''])
       },
       error:(e:HttpErrorResponse)=>{
-        localStorage.removeItem('token')
+        localStorage.clear()
         this.response = e.error
       }
     })

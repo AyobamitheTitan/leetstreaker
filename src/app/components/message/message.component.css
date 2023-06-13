@@ -4,6 +4,10 @@
   align-items: flex-end;
   flex: 2;
 }
+
 button {
   border-radius: 2px;
+}
+
+.username{
 }

@@ -16,11 +16,13 @@
 }
 
 .error{
+  color: rgb(212, 33, 33);
+}
+
+.error-body{
   background: pink;
   border: 1.3px solid rgb(228, 43, 43);
-  color: rgb(212, 33, 33);
   border-radius: 2px;
-  width: 70%;
 }
 
 .dash-details{

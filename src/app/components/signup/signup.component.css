@@ -31,6 +31,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   color: rgb(222, 31, 31);
+  font-size: larger;
 }
 
 .form-wrapper {
